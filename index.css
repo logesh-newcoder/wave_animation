@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+h2 {
+    color: white;
+    position: absolute;
+    top: 10%;
+    font-size: 2rem;
+    z-index: 1; 
+}
+
+.con {
+    position: relative; 
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    transform: perspective(800px) rotateX(60deg);
+}
+
+.con div {
+    position: absolute;
+    border: 5px solid white;
+    border-radius: 50%;
+    animation: ani 2s linear infinite;
+    animation-delay: calc(0.08s * var(--i));
+    top: calc(var(--i) * 5px);
+    right: calc(var(--i) * 5px);
+    left: calc(var(--i) * 5px);
+    bottom: calc(var(--i) * 5px);
+}
+
+@keyframes ani {
+    0%, 100% {
+        transform: translateZ(-100px);
+    }
+    50% {
+        transform: translateZ(100px);
+    }
+}
